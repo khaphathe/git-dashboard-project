@@ -1,4 +1,4 @@
-const API_ENDPOINT = 'https://api.example.com/data';
+const API_ENDPOINT = 'https://api.real-prod-api.com/data';
 
 const dataContainer = document.getElementById('data-container');
 const loadBtn = document.getElementById('load-data-btn');
