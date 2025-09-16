@@ -3,14 +3,13 @@ const API_ENDPOINT = 'https://api.example.com/data';
 const dataContainer = document.getElementById('data-container');
 const loadBtn = document.getElementById('load-data-btn');
 
-function fetchData() {
-    fetch(API_ENDPOINT)
-        .then(response => response.json()).then(data => { dataContainer.innerHTML =`<strong>Data Loaded:</strong> ${ data.message }` ; })
-        .catch(error => {
-            dataContainer.innerHTML =
-            `<span class="error">Failed to load data</span>`
-            console.error('fetch Error :', error);
-        });
+async function fetchData() {
+    try {
+        const response = await fetch(API_ENDPOINT);
+        const data = await response.json();
+        dataContainer.innerHTML = `<strong>Data Loaded:</strong>${data.message}`;
+    }
+    catch (error) { }
 }
 
 loadBtn.addEventListener('click', fetchData);
